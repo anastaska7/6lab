@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Далматин</title>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Собачки</h1>
+        </header>
+        <nav>
+          <img src="image/menu.png" id="buttonM">
+           <div class="menu" id="menu">
+            <a href="serval.html"><img style="max-width: 15%;" id ="buttonImg" src="image/dob.jpg"></a>
+            <a href="index.html"><img style="max-width: 15%;" id ="buttonImg" src="image/dal.jpg"></a>
+            <a href="ch.html"><img style="max-width: 15%;" id ="buttonImg" src="image/pr.jpg"></a>
+            </div>
+        </nav>
+        <main>
+            <div class="flexcont">
+              <a href="https://youtu.be/f9NL3pZdR1o"> <aside class="reklam" id="slider">
+                     <figure>
+        <img src="image/primite.jpg">
+        <img src="image/pzh.jpg">
+        <img src="image/raboty.jpg">
+
+    </figure>
+              </aside>
+              </a>
+               <article class="generalCont">
+                <div class="item1">
+                    <span class="text">
+                       Далматин — достаточно крупная, сильная и выносливая собака, способная преодолевать большие расстояния. Пропорции тела весьма гармоничны. Отношение длины корпуса к высоте в холке составляет 10:9, длина черепа и длина морды 1:1. Темперамент далматина очень уравновешенный.
+
+                    </span><span id="moreLit" class="text"> Подробнее...</span><span class="text" id="moreText">
+                      Собаки, имеющие в окрасе пятна и очень похожие на современных далматинов, были известны ещё в древние времена, например, археологические раскопки в Греции позволили увидеть разнообразные картины, на которых, наряду с людьми, были изображены очень похожие на современных далматинов собаки. А это значит, что далматины существуют уже несколько тысячелетий[источник не указан 1351 день]. Далматины — достаточно активные собаки, требующие больших нагрузок и долгих прогулок на свежем воздухе.
+                       </span><span id="notMoreLit" class="text"> Скрыть...</span>
+                </div>
+                <div class="item2">
+<div id="carousel" class="carousel">
+    <button class="arrow prev">⇦</button>
+    <div class="gallery">
+      <ul>
+        <li><img src="image/d1.jpg"></li>
+        <li><img src="image/d2.webp"></li>
+        <li><img src="image/d3.jpg"></li>
+        <li><img src="image/d4.jpeg"></li>
+
+      </ul>
+    </div>
+    <button class="arrow next">⇨</button>
+  </div>
+
+  <script>
+    /* этот код помечает картинки, для удобства разработки */
+    let i = 1;
+    for(let li of carousel.querySelectorAll('li')) {
+      li.style.position = 'relative';
+      li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+      i++;
+    }
+
+    /* конфигурация */
+    let width = 130; // ширина картинки
+    let count = 3; // видимое количество изображений
+
+    let list = carousel.querySelector('ul');
+    let listElems = carousel.querySelectorAll('li');
+
+    let position = 0; // положение ленты прокрутки
+
+    carousel.querySelector('.prev').onclick = function() {
+      // сдвиг влево
+      position += width * count;
+      // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+      position = Math.min(position, 0)
+      list.style.marginLeft = position + 'px';
+    };
+
+    carousel.querySelector('.next').onclick = function() {
+      // сдвиг вправо
+      position -= width * count;
+      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+      position = Math.max(position, -width * (listElems.length - count));
+      list.style.marginLeft = position + 'px';
+    };
+  </script>
+                   </div>
+                </article>
+            </div>
+        </main>
+        <footer>
+            <div class="fCont">
+               <ul>
+                   <li><a id="socLV" href="https://vk.com/an_astaska"><img src="image/vk.png" class="soc" /> @an_astaska</a></li>
+                </ul>
+            </div>
+            <div class="fCont2">
+                <p class="foote">Жикина Анастасия и Николаев Тимур</p>
+                <p class="foote">22-ИСбо-4а</p>
+            </div>
+        </footer>
+               
+                <script>
+            $('#moreLit').click(function() {
+                $('#moreText').show(1000);
+                $('#moreLit').hide(1000);
+                $('#notMoreLit').show(1000);
+            });
+            
+                 $('#notMoreLit').click(function() {
+                $('#moreText').hide(1000);
+                $('#moreLit').show(1000);
+                     $('#notMoreLit').hide(1000);
+            });
+            $('#buttonM').click(function() {
+                $('#menu').slideToggle(1000);
+                });
+
+
+        </script>  
+        
+    </body>
+</html>
